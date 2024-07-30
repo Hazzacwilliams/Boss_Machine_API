@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const minionRouter = require('./server/routes/minions');
+const ideaRouter = require('./server/routes/ideas');
+
 
 module.exports = app;
 
@@ -19,6 +22,8 @@ app.use(bodyParser.json());
 // Mount your existing apiRouter below at the '/api' path.
 const apiRouter = require('./server/api');
 app.use('/api', apiRouter);
+app.use('/api/minions', minionRouter);
+app.use('api/ideas', ideaRouter);
 
 
 // This conditional is here for testing purposes:
