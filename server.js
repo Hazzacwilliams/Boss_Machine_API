@@ -4,6 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const minionRouter = require('./server/routes/minions');
 const ideaRouter = require('./server/routes/ideas');
+const meetingRouter = require('./server/routes/meetings');
 
 
 module.exports = app;
@@ -23,7 +24,9 @@ app.use(bodyParser.json());
 const apiRouter = require('./server/api');
 app.use('/api', apiRouter);
 app.use('/api/minions', minionRouter);
-app.use('api/ideas', ideaRouter);
+app.use('/api/ideas', ideaRouter);
+app.use('/api/meetings', meetingRouter);
+
 
 
 // This conditional is here for testing purposes:
